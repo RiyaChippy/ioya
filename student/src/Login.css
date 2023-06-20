@@ -1,0 +1,81 @@
+.con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, red,yellow,black,blue);
+    background-size: cover;
+   
+    
+  }
+  .but{
+    background: black;
+    color: white;
+  }
+  .box {
+    width: 300px;
+    padding: 20px;
+    background: linear-gradient(to bottom, red,yellow,black,blue);
+    
+    border-radius: 5px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: aliceblue;
+    
+  }
+  .ba{
+    color: white;
+  }
+  form {
+    margin-top: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input {
+    width: 92%;
+    padding: 5px;
+    padding-right: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .error {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  .register-link {
+    text-align: center;
+  }
+  
+  .register-link a {
+    color: grey;
+  }
+  .register-link{
+    color: black;
+  }
+  .we{
+    align-items: center;
+    align-items: center;
+    min-height: 100vh;
+    filter: blur(100px);
+    background: linear-gradient(to bottom,red,yellow,black,blue);
+}
+  

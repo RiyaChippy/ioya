@@ -1,0 +1,110 @@
+
+h2 {
+  color: white;
+  font-size: 60px;
+  margin: 0;
+  font-weight: bolder;
+}
+
+.p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 90%;
+  transition: opacity 0.5s;
+}
+
+.container {
+  height: 1694px;
+  width: 1512px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.potter {
+  padding-top: 57px;
+  position: relative;
+  width: 518%;
+  height: 646px;
+  display: flex;
+  margin-top: 42%;
+  overflow: hidden;
+}
+
+.potter input {
+  position: fixed;
+  border-radius: 5px;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.slide {
+  width: 20%;
+  transition: 2s;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 653px;
+}
+
+.navigation-man {
+  position: absolute;
+  width: 1500px;
+  margin-top: 620px;
+  display: flex;
+  justify-content: center;
+}
+
+.manual-b {
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+  color: black;
+  background-color: aliceblue;
+}
+
+.manual-b:not(:last-child) {
+  margin-right: 40px;
+}
+
+.manual-b:hover {
+  background: white;
+}
+
+#img1:checked ~ .first {
+  margin-left: 0;
+}
+
+#img2:checked ~ .first {
+  margin-left: -20%;
+}
+
+#img3:checked ~ .first {
+  margin-left: -40%;
+}
+
+#img4:checked ~ .first {
+  margin-left: -60%;
+}
+
+#img5:checked ~ .first {
+  margin-left: -80%;
+}
