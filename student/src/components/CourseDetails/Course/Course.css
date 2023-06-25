@@ -1,22 +1,73 @@
+.he {
+  color: white;
+  margin-top: -66px;
+  font-size: 40px;
+  align-content: center;
+}
+.ha {
+  font-size: 35px;
+  margin-top: 3px;
+  color: white;
+}
+.hea {
+  font-size: 40px;
+  margin-top: -39px;
+  font-size: 35px;
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+.course-name {
+  color: white;
+}
 
-.he{
-    
-    color: white;
-    margin-top: -66px;
-    font-size: 40px;
-    align-content: center;
+.selected-course-name {
+  text-align: center;
+  color: white;
 }
-.ha{
-    font-size: 35px;
-    margin-top: 3px;
-    color: white;
+
+.selected-course-desc {
+  font-size: 16px; /* Adjust the font size as desired */
+  color: white; /* Adjust the color as desired */
+  margin-top: 10px; /* Adjust the top margin as desired */
 }
-.hea{
-    font-size: 40px;
-    margin-top: -39px;
-        font-size: 35px;
-        margin: auto;
-        width: 50%;
-        border: 3px solid green;
-        padding: 10px;
+
+.subheader {
+  color: aliceblue;
+  padding-left: -9px;
+  margin-left: 66px;
+}
+.course-list {
+  list-style-type: disc;
+  color: white;
+  padding-left: 76px;
+  padding-right: 30pc;
+}
+.course-list li:hover .course-name {
+  color: blue; /* Set the color of the course name on hover */
+}
+.course-photo-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.photo-and-course {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center; /* Align items vertically in the center */
+  gap: 0px; /* Add a gap between flex items */
+}
+
+.photo-and-course > .course-name {
+  margin-right: 30px;
+}
+
+.course-photo {
+  width: 600px; /* Adjust the width as desired */
+  height: 400px; /* Adjust the height as desired */
+  object-fit: cover;
+  margin-right: 84px; /* Adjust the object-fit property as desired */
+}
+img:hover {
+  transform: scaleX(-1);
 }
