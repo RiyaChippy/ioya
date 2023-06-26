@@ -29,8 +29,9 @@
 
 .selected-course-desc {
   font-size: 16px; /* Adjust the font size as desired */
-  color: white; /* Adjust the color as desired */
-  margin-top: 10px; /* Adjust the top margin as desired */
+  text-align: justify;
+  margin: 30px;
+  color: #ddd;
 }
 
 .subheader {
@@ -55,7 +56,7 @@
   display: flex;
   flex-direction: row-reverse;
   align-items: center; /* Align items vertically in the center */
-  gap: 0px; /* Add a gap between flex items */
+  gap: 0px;
 }
 
 .photo-and-course > .course-name {
@@ -74,8 +75,9 @@ img:hover {
 /* syllabus.css */
 
 .table-container {
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
+  margin: 30px;
 }
 
 .table-container th,
@@ -88,10 +90,72 @@ img:hover {
   background-color: #f2f2f2;
 }
 
-.table-container tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+.table-container tbody tr {
+  background-color: #f2f2f2;
 }
 
 .table-container tbody tr:hover {
   background-color: #eaf5ff;
+}
+.libary {
+  color: #ddd;
+  margin: 20px;
+}
+.para {
+  text-align: justify;
+  margin: 30px;
+  color: #ddd;
+}
+.h4 {
+  margin: 20px;
+  font-size: large;
+  color: #ddd;
+}
+
+.para1 {
+  text-align: justify;
+  margin: 30px;
+  color: #ddd;
+  text-decoration: underline;
+  text-decoration-color: aqua;
+}
+.flex-container {
+  display: flex;
+  gap: 90px;
+}
+.digitallib {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #3366cc;
+}
+.img-container img:hover {
+  transform: scale(0.95);
+}
+
+.img-container img {
+  max-width: 70%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+.para1 {
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #3366cc;
+}
+
+.table-container {
+  width: 100%;
+  border-collapse: collapse;
+}
+.img-container img {
+  max-width: 10%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }

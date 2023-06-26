@@ -1,3 +1,66 @@
-.h2{
-    color: aliceblue;
+.h2 {
+  color: aliceblue;
+}
+.fest-container {
+  display: block; /* Add container styles here */
+}
+
+.fest-grid {
+  /* Add grid styles here */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.fest-item {
+  /* Add item styles here */
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.fest-card {
+  /* Add card styles here */
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.fest-card-front,
+.fest-card-back {
+  /* Add card front and back styles here */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.fest-card-front {
+  /* Add card front styles here */
+  transform: rotateY(0deg);
+}
+
+.fest-card-back {
+  /* Add card back styles here */
+  transform: rotateY(180deg);
+  background-color: #f0f0f0;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+}
+
+.fest-item:hover .fest-card {
+  /* Add hover animation styles here */
+  transform: rotateY(180deg);
+}
+
+.fest-image {
+  /* Add image styles here */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

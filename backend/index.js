@@ -143,6 +143,18 @@ app.get("/syllabus", (req, res) => {
     }
   });
 });
+app.get("/books", (req, res) => {
+  const sql = "SELECT * FROM books";
+
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error("Error executing the query:", err);
+      res.status(500).send("Internal Server Error");
+    } else {
+      res.status(200).json(results);
+    }
+  });
+});
 
 app.listen(8000, () => {
   console.log("Server started on port 8000");

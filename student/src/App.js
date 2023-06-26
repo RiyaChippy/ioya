@@ -11,6 +11,7 @@ import Post from "./pages/Post";
 import Landingpage from "./pages/Landingpage";
 import Adminlogin from "./components/Admin/Adminlogin";
 import AdminDashboard from "./components/Admin/AdminDasbboard";
+import Other from "./pages/Other";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/CourseDetails" element={<CourseDetails />} />
         <Route path="/hostel" element={<Hostel />} />
         <Route path="/Events" element={<Events />} />
+        <Route path="/Others" element={<Other />} />
         <Route path="/Post" element={<Post />} />
       </Routes>
     </Router>

@@ -19,7 +19,7 @@ function Syllabus() {
 
   return (
     <div>
-      <h1>Syllabus</h1>
+      <h4 className="h4">Syllabus</h4>
       <table className="table-container">
         <thead>
           <tr>
@@ -37,7 +37,7 @@ function Syllabus() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {course.syllabus}
+                  syllabus {course.course_name}
                 </a>
               </td>
             </tr>
