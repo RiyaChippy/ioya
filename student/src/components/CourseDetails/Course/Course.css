@@ -69,9 +69,7 @@
   object-fit: cover;
   margin-right: 84px; /* Adjust the object-fit property as desired */
 }
-img:hover {
-  transform: scaleX(-1);
-}
+
 /* syllabus.css */
 
 .table-container {
@@ -151,11 +149,4 @@ img:hover {
 .table-container {
   width: 100%;
   border-collapse: collapse;
-}
-.img-container img {
-  max-width: 10%;
-  height: auto;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
 }
