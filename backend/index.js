@@ -3,6 +3,7 @@ import mysql from "mysql";
 import cors from "cors";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
+import bcrypt from "bcrypt";
 
 const app = express();
 app.use(cors());
@@ -16,6 +17,7 @@ const db = mysql.createConnection({
   database: "trial",
 });
 
+const saltRounds = 10;
 const secretKey = "mySecretKey";
 
 const verifyAdmin = (req, res, next) => {
@@ -49,17 +51,78 @@ const verifyAdmin = (req, res, next) => {
   });
 };
 
+// Admin Registration
+app.post("/adminregister", (req, res) => {
+  const { username, password } = req.body;
+
+  bcrypt.hash(password, saltRounds, (err, hashedPassword) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send("Error registering new admin");
+    }
+
+    const sql = "INSERT INTO admin (username, password) VALUES (?, ?)";
+    db.query(sql, [username, hashedPassword], (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send("Error registering new admin");
+      } else {
+        console.log(result);
+        res.send("Admin registered successfully");
+      }
+    });
+  });
+});
+
 // User Registration
 app.post("/register", (req, res) => {
   const { name, email, password } = req.body;
-  const sql = "INSERT INTO user (username, email, password) VALUES (?, ?, ?)";
-  db.query(sql, [name, email, password], (err, result) => {
+
+  bcrypt.hash(password, saltRounds, (err, hashedPassword) => {
     if (err) {
       console.log(err);
-      res.status(500).send("Error registering new user");
+      return res.status(500).send("Error registering new user");
+    }
+
+    const sql = "INSERT INTO user (username, email, password) VALUES (?, ?, ?)";
+    db.query(sql, [name, email, hashedPassword], (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send("Error registering new user");
+      } else {
+        console.log(result);
+        res.send("User registered successfully");
+      }
+    });
+  });
+});
+app.get("/users", (req, res) => {
+  const sql = "SELECT * FROM user";
+
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error("Error executing the query:", err);
+      res.status(500).send("Internal Server Error");
     } else {
-      console.log(result);
-      res.send("User registered successfully");
+      res.status(200).json(results);
+    }
+  });
+});
+
+app.delete("/users/:id", (req, res) => {
+  const userId = parseInt(req.params.id);
+  const sql = "DELETE FROM user WHERE id = ?";
+
+  db.query(sql, [userId], (err, result) => {
+    if (err) {
+      console.error("Error executing the query:", err);
+      res.status(500).send("Internal Server Error");
+    } else {
+      if (result.affectedRows > 0) {
+        res.json({ message: "User removed successfully" });
+      } else {
+        res.status(404).json({ message: "User not found" });
+      }
     }
   });
 });
@@ -68,8 +131,8 @@ app.post("/register", (req, res) => {
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
 
-  const sql = "SELECT * FROM user WHERE email = ? AND password = ?";
-  db.query(sql, [email, password], (err, results) => {
+  const sql = "SELECT * FROM user WHERE email = ?";
+  db.query(sql, [email], (err, results) => {
     if (err) {
       console.log(err);
       return res.status(500).send("Error logging in");
@@ -77,20 +140,30 @@ app.post("/login", (req, res) => {
 
     if (results.length > 0) {
       const user = results[0];
-      const token = jwt.sign({ id: user.id }, secretKey);
-      return res.json({ token });
-    }
+      bcrypt.compare(password, user.password, (err, passwordMatch) => {
+        if (err) {
+          console.log(err);
+          return res.status(500).send("Error logging in");
+        }
 
-    return res.status(401).send("Invalid email or password");
+        if (passwordMatch) {
+          const token = jwt.sign({ id: user.id }, secretKey);
+          return res.json({ token });
+        } else {
+          return res.status(401).send("Invalid email or password");
+        }
+      });
+    } else {
+      return res.status(401).send("Invalid email or password");
+    }
   });
 });
-
 // Admin Login
 app.post("/adminlogin", (req, res) => {
   const { username, password } = req.body;
 
-  const sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
-  db.query(sql, [username, password], (err, results) => {
+  const sql = "SELECT * FROM admin WHERE username = ?";
+  db.query(sql, [username], (err, results) => {
     if (err) {
       console.log(err);
       return res.status(500).send("Error logging in");
@@ -98,22 +171,21 @@ app.post("/adminlogin", (req, res) => {
 
     if (results.length > 0) {
       const admin = results[0];
-      const token = jwt.sign({ id: admin.id }, secretKey);
-      return res.json({ token });
-    }
+      bcrypt.compare(password, admin.password, (err, passwordMatch) => {
+        if (err) {
+          console.log(err);
+          return res.status(500).send("Error logging in");
+        }
 
-    return res.status(401).send("Invalid username or password");
-  });
-});
-app.get("/users", (req, res) => {
-  // Retrieve users from the database
-  const sql = "SELECT * FROM user";
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error("Error fetching users:", err);
-      res.status(500).json({ error: "An error occurred while fetching users" });
+        if (passwordMatch) {
+          const token = jwt.sign({ id: admin.id }, secretKey);
+          return res.json({ token }); // Send the token as JSON
+        } else {
+          return res.status(401).send("Invalid username or password");
+        }
+      });
     } else {
-      res.status(200).json(results);
+      return res.status(401).send("Invalid username or password");
     }
   });
 });
@@ -130,6 +202,23 @@ app.get("/courses", (req, res) => {
     }
   });
 });
+app.delete("/courses/:id", (req, res) => {
+  const coursesId = parseInt(req.params.id);
+  const sql = "DELETE FROM courses WHERE id = ?";
+
+  db.query(sql, [coursesId], (err, result) => {
+    if (err) {
+      console.error("Error executing the query:", err);
+      res.status(500).send("Internal Server Error");
+    } else {
+      if (result.affectedRows > 0) {
+        res.json({ message: "User removed successfully" });
+      } else {
+        res.status(404).json({ message: "User not found" });
+      }
+    }
+  });
+});
 
 app.get("/syllabus", (req, res) => {
   const sql = "SELECT * FROM syllabus";
@@ -143,6 +232,24 @@ app.get("/syllabus", (req, res) => {
     }
   });
 });
+
+app.delete("/syllubus/:int", (req, res) => {
+  const syllubusint = parseInt(req.params.id);
+  const sql = "DELETE FROM syllubus WHERE id = ?";
+
+  db.query(sql, [syllubusint], (err, result) => {
+    if (err) {
+      console.error("Error executing the query:", err);
+      res.status(500).send("Internal Server Error");
+    } else {
+      if (result.affectedRows > 0) {
+        res.json({ message: "User removed successfully" });
+      } else {
+        res.status(404).json({ message: "User not found" });
+      }
+    }
+  });
+});
 app.get("/books", (req, res) => {
   const sql = "SELECT * FROM books";
 
@@ -152,6 +259,24 @@ app.get("/books", (req, res) => {
       res.status(500).send("Internal Server Error");
     } else {
       res.status(200).json(results);
+    }
+  });
+});
+
+app.delete("/books/:id", (req, res) => {
+  const booksId = parseInt(req.params.id);
+  const sql = "DELETE FROM books WHERE id = ?";
+
+  db.query(sql, [booksId], (err, result) => {
+    if (err) {
+      console.error("Error executing the query:", err);
+      res.status(500).send("Internal Server Error");
+    } else {
+      if (result.affectedRows > 0) {
+        res.json({ message: "User removed successfully" });
+      } else {
+        res.status(404).json({ message: "User not found" });
+      }
     }
   });
 });

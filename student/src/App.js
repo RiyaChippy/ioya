@@ -12,6 +12,8 @@ import Landingpage from "./pages/Landingpage";
 import Adminlogin from "./components/Admin/Adminlogin";
 import AdminDashboard from "./components/Admin/AdminDasbboard";
 import Other from "./pages/Other";
+import AddUserPage from "./components/Admin/AddUserPage";
+import AdminRegistration from "./components/Admin/AdminRegistration";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="/Events" element={<Events />} />
         <Route path="/Others" element={<Other />} />
         <Route path="/Post" element={<Post />} />
+        <Route path="/Adduserpage" element={<AddUserPage />} />
+        <Route path="/Adminregister" element={<AdminRegistration />} />
       </Routes>
     </Router>
   );

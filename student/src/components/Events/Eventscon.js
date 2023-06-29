@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Eventscon.css";
 
 const Eventscon = () => {
@@ -63,8 +64,8 @@ const Eventscon = () => {
               lobortis porta. Vestibulum ultrices iaculis enim imperdiet
               egestas.
             </p>
-            <a href="#" className="read-more">
-              Read more{" "}
+            <Link to="/" className="read-more">
+              Read More Read more{" "}
               <span className="sr-only">about this is some title</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +79,7 @@ const Eventscon = () => {
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </article>
@@ -95,7 +96,7 @@ const Eventscon = () => {
               lobortis porta. Vestibulum ultrices iaculis enim imperdiet
               egestas.
             </p>
-            <a href="#" className="read-more">
+            <Link to="/" className="read-more">
               Read more{" "}
               <span className="sr-only">about this is some title</span>
               <svg
@@ -110,7 +111,7 @@ const Eventscon = () => {
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </article>
