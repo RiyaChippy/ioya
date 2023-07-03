@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Eventscon.css";
 import img12 from './2023-06-30.png';
 import img13 from './logo.png';
+
 const Eventscon = () => {
   return (
     <section className="articles">
@@ -27,7 +29,7 @@ const Eventscon = () => {
               variety which the Cochin University of Science and Technology
               enjoys regarding the nativity of its students. Dhishna attracts
               participation of over 2000 students from various colleges in
-              addition to school students from the neighbourhood.
+              addition to school students from the neighborhood.
             </p>
             <a
               href="https://soe.cusat.ac.in/images/demo/14_DHISHNA.pdf"
@@ -54,16 +56,15 @@ const Eventscon = () => {
       <article>
         <div className="article-wrapper">
           <figure>
-            
             <img src={img12} alt=" " className='vibhava' />
           </figure>
           <div className="article-body">
             <h2 className="d">Vibhava</h2>
             <p>
-            Vibhava is an educational fest conducted by CUSAT that aims to provide a platform for students to learn new technical skills and knowledge. The fest comprises a range of activities and events, including technical workshops, seminars, and much more.
+              Vibhava is an educational fest conducted by CUSAT that aims to provide a platform for students to learn new technical skills and knowledge. The fest comprises a range of activities and events, including technical workshops, seminars, and much more.
             </p>
-            <a href="https://www.vibhavacusat.in/" className="read-more">
-              Read more{" "}
+            <Link to="/" className="read-more">
+              Read More Read more{" "}
               <span className="sr-only">about this is some title</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,21 +78,21 @@ const Eventscon = () => {
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </article>
       <article>
         <div className="article-wrapper">
           <figure>
-          <img src={img13} alt=" " className='vibhava' />
+            <img src={img13} alt=" " className='vibhava' />
           </figure>
           <div className="article-body">
             <h2 className="d">Sargram</h2>
             <p>
-            The arts fest of Cochin University Students Union, SARGAM. It is an art festival with the collabration of all the collages in the University. It is a four day program with DJs and so on. 
+              The arts fest of Cochin University Students Union, SARGAM. It is an art festival with the collaboration of all the colleges in the University. It is a four-day program with DJs and so on.
             </p>
-            <a href="https://studentsunion.cusat.ac.in/" className="read-more">
+            <Link to="/" className="read-more">
               Read more{" "}
               <span className="sr-only">about this is some title</span>
               <svg
@@ -106,7 +107,7 @@ const Eventscon = () => {
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </article>
