@@ -25,7 +25,7 @@ function Course() {
   return (
     <div className="course-container">
       <div className="courses">
-        <h2>COURSES</h2>
+        <h2 className="d">COURSES</h2>
       </div>
       <div className="subheader">
         <h3>BTech Courses offered by Cochin University</h3>

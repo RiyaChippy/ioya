@@ -1,5 +1,4 @@
-
-h2 {
+.h2 {
   color: white;
   font-size: 60px;
   margin: 0;
@@ -29,7 +28,7 @@ h2 {
   position: absolute;
   top: 30%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 .potter {
@@ -108,3 +107,59 @@ h2 {
 #img5:checked ~ .first {
   margin-left: -80%;
 }
+
+.navi-auto {
+  position: absolute;
+  width: 1500px;
+  margin-top: 620px;
+  display: flex;
+  justify-content: center;
+}
+
+.navi-auto div {
+  border: 2px solid rgb(97, 97, 180);
+  transition: 1s;
+}
+
+.navi-auto div:not(:last-child) {
+  margin-right: 40px;
+}
+
+@keyframes slide {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: -20%;
+  }
+  45% {
+    left: -20%;
+  }
+  50% {
+    left: -40%;
+  }
+  70% {
+    left: -40%;
+  }
+  75% {
+    left: -60%;
+  }
+  95% {
+    left: -60%;
+  }
+  100% {
+    left: -80%;
+  }
+}
+
+.potter input[name='slide']:checked ~ .slide {
+  animation: slide 20s infinite;
+}
+
+.navi-auto div.active {
+  background-color: rgb(97, 97, 180);
+}
+

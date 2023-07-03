@@ -44,7 +44,7 @@ const Adminlogin = () => {
 
   return (
     <div>
-      <h1>Admin Login</h1>
+      <h1 className="e">Admin Login</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
         <input

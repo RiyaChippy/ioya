@@ -1,6 +1,7 @@
 import React from "react";
 import "./Eventscon.css";
-
+import img12 from './2023-06-30.png';
+import img13 from './logo.png';
 const Eventscon = () => {
   return (
     <section className="articles">
@@ -14,7 +15,7 @@ const Eventscon = () => {
             />
           </figure>
           <div className="article-body">
-            <h2>Dhishna</h2>
+            <h2 className="d">Dhishna</h2>
             <p>
               Dhishna,The Technical fest, is the amalgamation of the talent and
               resources of the students of all branches of School of
@@ -53,17 +54,15 @@ const Eventscon = () => {
       <article>
         <div className="article-wrapper">
           <figure>
-            <img src="https://picsum.photos/id/1005/800/450" alt="" />
+            
+            <img src={img12} alt=" " className='vibhava' />
           </figure>
           <div className="article-body">
-            <h2>This is some title</h2>
+            <h2 className="d">Vibhava</h2>
             <p>
-              Curabitur convallis ac quam vitae laoreet. Nulla mauris ante,
-              euismod sed lacus sit amet, congue bibendum eros. Etiam mattis
-              lobortis porta. Vestibulum ultrices iaculis enim imperdiet
-              egestas.
+            Vibhava is an educational fest conducted by CUSAT that aims to provide a platform for students to learn new technical skills and knowledge. The fest comprises a range of activities and events, including technical workshops, seminars, and much more.
             </p>
-            <a href="#" className="read-more">
+            <a href="https://www.vibhavacusat.in/" className="read-more">
               Read more{" "}
               <span className="sr-only">about this is some title</span>
               <svg
@@ -85,17 +84,14 @@ const Eventscon = () => {
       <article>
         <div className="article-wrapper">
           <figure>
-            <img src="https://picsum.photos/id/103/800/450" alt="" />
+          <img src={img13} alt=" " className='vibhava' />
           </figure>
           <div className="article-body">
-            <h2>This is some title</h2>
+            <h2 className="d">Sargram</h2>
             <p>
-              Curabitur convallis ac quam vitae laoreet. Nulla mauris ante,
-              euismod sed lacus sit amet, congue bibendum eros. Etiam mattis
-              lobortis porta. Vestibulum ultrices iaculis enim imperdiet
-              egestas.
+            The arts fest of Cochin University Students Union, SARGAM. It is an art festival with the collabration of all the collages in the University. It is a four day program with DJs and so on. 
             </p>
-            <a href="#" className="read-more">
+            <a href="https://studentsunion.cusat.ac.in/" className="read-more">
               Read more{" "}
               <span className="sr-only">about this is some title</span>
               <svg
