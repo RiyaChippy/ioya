@@ -14,6 +14,8 @@ import AdminDashboard from "./components/Admin/AdminDasbboard";
 import Other from "./pages/Other";
 import AddUserPage from "./components/Admin/AddUserPage";
 import AdminRegistration from "./components/Admin/AdminRegistration";
+import Forgotten from "./pages/Forgotten";
+import Adminpost from "./components/Admin/Adminpost";
 
 function App() {
   return (
@@ -24,14 +26,16 @@ function App() {
         <Route path="/Admin/dashboard" element={<AdminDashboard />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/CourseDetails" element={<CourseDetails />} />
-        <Route path="/hostel" element={<Hostel />} />
-        <Route path="/Events" element={<Events />} />
-        <Route path="/Others" element={<Other />} />
-        <Route path="/Post" element={<Post />} />
-        <Route path="/Adduserpage" element={<AddUserPage />} />
+        <Route path="/login/Home" element={<Home />} />
+        <Route path="/login/Home/CourseDetails" element={<CourseDetails />} />
+        <Route path="/login/Home/hostel" element={<Hostel />} />
+        <Route path="/login/Home/Events" element={<Events />} />
+        <Route path="/login/Home/Others" element={<Other />} />
+        <Route path="/login/Home/Post" element={<Post />} />
+        <Route path="/Admin/dashboard/Adduserpage" element={<AddUserPage />} />
         <Route path="/Adminregister" element={<AdminRegistration />} />
+        <Route path="/forgottenpassword" element={<Forgotten />} />
+        <Route path="/Admin/dashboard/Adminpost" element={<Adminpost />} />
       </Routes>
     </Router>
   );

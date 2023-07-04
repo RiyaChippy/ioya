@@ -75,3 +75,8 @@ button {
   filter: blur(100px);
   background: linear-gradient(to bottom, black, white);
 }
+.forgot {
+  font-size: 40px;
+  margin-bottom: auto;
+  font-size: revert;
+}

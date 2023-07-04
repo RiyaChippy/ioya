@@ -6,7 +6,6 @@ function Syllabus() {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    // Fetch courses from the backend API
     axios
       .get("http://localhost:8000/syllabus")
       .then((response) => {
@@ -29,7 +28,7 @@ function Syllabus() {
         </thead>
         <tbody>
           {courses.map((course) => (
-            <tr key={course.id}>
+            <tr key={course.int}>
               <td>{course.course_name}</td>
               <td>
                 <a
@@ -37,7 +36,7 @@ function Syllabus() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  syllabus {course.course_name}
+                  Syllabus {course.course_name}
                 </a>
               </td>
             </tr>

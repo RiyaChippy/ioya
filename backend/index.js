@@ -4,11 +4,19 @@ import cors from "cors";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import bcrypt from "bcrypt";
+import session from "express-session";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
+app.use(
+  session({
+    secret: "your-secret-key", // Replace with your own secret key
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 const db = mysql.createConnection({
   user: "root",
@@ -148,6 +156,7 @@ app.post("/login", (req, res) => {
 
         if (passwordMatch) {
           const token = jwt.sign({ id: user.id }, secretKey);
+          req.session.token = token; // Store the token in the session
           return res.json({ token });
         } else {
           return res.status(401).send("Invalid email or password");
@@ -158,6 +167,19 @@ app.post("/login", (req, res) => {
     }
   });
 });
+
+app.post("/logout", (req, res) => {
+  console.log(req.session); // Check if req.session is defined
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send("Error logging out");
+    }
+
+    res.status(200).json({ message: "Logout successful" });
+  });
+});
+
 // Admin Login
 app.post("/adminlogin", (req, res) => {
   const { username, password } = req.body;
@@ -278,6 +300,84 @@ app.delete("/books/:id", (req, res) => {
         res.status(404).json({ message: "User not found" });
       }
     }
+  });
+});
+
+app.post("/forgot-password", (req, res) => {
+  const { username, newPassword } = req.body;
+
+  const sql = "SELECT * FROM user WHERE username = ?";
+  db.query(sql, [username], (err, results) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send("Error resetting password");
+    }
+
+    if (results.length > 0) {
+      const user = results[0];
+
+      bcrypt.hash(newPassword, saltRounds, (err, hashedPassword) => {
+        if (err) {
+          console.log(err);
+          return res.status(500).send("Error resetting password");
+        }
+
+        const updateSql = "UPDATE user SET password = ? WHERE id = ?";
+        db.query(updateSql, [hashedPassword, user.id], (err, result) => {
+          if (err) {
+            console.log(err);
+            return res.status(500).send("Error resetting password");
+          }
+
+          return res.send("Password reset successfully");
+        });
+      });
+    } else {
+      return res.status(401).send("Invalid username");
+    }
+  });
+});
+
+app.post("/posts", (req, res) => {
+  const { title, content } = req.body;
+
+  const sql = "INSERT INTO posts (title, content) VALUES (?, ?)";
+  db.query(sql, [title, content], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send("Error creating post");
+    }
+
+    console.log(result);
+    res.send("Post created successfully");
+  });
+});
+
+app.get("/posts", (req, res) => {
+  const sql = "SELECT * FROM posts";
+
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error("Error executing the query:", err);
+      res.status(500).send("Internal Server Error");
+    } else {
+      res.status(200).json(results);
+    }
+  });
+});
+
+app.delete("/posts/:id", (req, res) => {
+  const postId = req.params.id;
+
+  const sql = "DELETE FROM posts WHERE id = ?";
+  db.query(sql, [postId], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send("Error deleting post");
+    }
+
+    console.log(result);
+    res.send("Post deleted successfully");
   });
 });
 

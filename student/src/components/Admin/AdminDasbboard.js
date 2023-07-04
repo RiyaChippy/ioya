@@ -149,6 +149,9 @@ class AdminDashboard extends React.Component {
         <Link to="/Adduserpage" className="admin-dashboard-link">
           Create New User
         </Link>
+        <Link to="/Adminpost" className="admin-dashboard-link">
+          Posts
+        </Link>
 
         <h5 className="admin-dashboard-section-title">Courses</h5>
         <table className="admin-dashboard-table">

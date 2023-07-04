@@ -1,43 +1,123 @@
-h2 {
-  font-size: 54px;
-  text-align: center; /* Use 'text-align' instead of 'align-content' */
-  margin-top: 0; /* Remove negative margin */
+/* ProductList.css */
+
+body {
+  font-family: "Oswald", sans-serif;
 }
-.container1 {
+
+section {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.product-item {
+  align-items: center;
+  height: 100vh;
+}
+
+.product-card {
   position: relative;
-  width: 50%;
-}
-
-.image7 {
-  display: block;
+  height: 400px;
   width: 100%;
-  height: auto;
+  margin: 10px 0;
+  transition: ease all 2.3s;
+  perspective: 1200px;
 }
 
-.overlay {
+.product-cover {
   position: absolute;
-  bottom: 0;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: ease all 2.3s;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.product-cover.item-a {
+  background-image: url("https://hostels.cusat.ac.in/media/Sahara.png");
+}
+
+.product-cover.item-b {
+  background-image: url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=600&q=80");
+}
+
+.product-cover.item-c {
+  background-image: url("https://images.unsplash.com/photo-1525945518069-b924046d1385?auto=format&fit=crop&w=600&q=80");
+}
+
+.product-cover:before {
+  content: "";
+  position: absolute;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2;
+  transition: ease all 2.3s;
+  transform-style: preserve-3d;
+  transform: translateZ(0px);
+}
+
+.product-cover:after {
+  content: "";
+  position: absolute;
+  top: 0;
   left: 0;
   right: 0;
-  background-color: #008cba;
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  transition: 0.5s ease;
+  bottom: 0;
+  z-index: 2;
+  transition: ease all 1.3s;
 }
 
-.container1:hover .overlay {
-  height: 100%;
+.product-cover:hover {
+  transform: rotateX(0deg) rotateY(-180deg);
 }
 
-.text {
-  white-space: nowrap;
-  color: white;
-  font-size: 20px;
+.product-cover:hover:before {
+  transform: translateZ(30px);
+}
+
+.product-cover:hover:after {
+  background-color: black;
+}
+
+.product-cover:hover h1 {
+  transform: translateZ(100px);
+}
+
+.product-cover:hover .product-price {
+  transform: translateZ(60px);
+}
+
+.product-card-back {
   position: absolute;
-  overflow: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  background: #0b0f08;
+  transform-style: preserve-3d;
+  transition: ease all 2.3s;
+  transform: translateZ(-1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card-back a {
+  transform-style: preserve-3d;
+  transform: translateZ(-1px) rotatey(-180deg);
+  background: transparent;
+  border: 1px solid white;
+  font-weight: 200;
+  font-size: 1.3em;
+  color: white;
+  padding: 14px 32px;
+  outline: none;
+  text-decoration: none;
+}
+
+.product-card-back a:hover {
+  background-color: white;
 }
