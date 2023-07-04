@@ -1,7 +1,11 @@
-/* ProductList.css */
-
 body {
   font-family: "Oswald", sans-serif;
+}
+
+.c {
+  font-size: 54px;
+  text-align: center;
+  margin-top: 0;
 }
 
 section {
