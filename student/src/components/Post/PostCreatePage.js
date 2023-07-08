@@ -7,7 +7,7 @@ const PostCreatePage = () => {
   const [content, setContent] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-  const [posts, setPosts] = useState([]); // Added posts state
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     fetchPosts();
@@ -24,17 +24,25 @@ const PostCreatePage = () => {
   const handlePostCreate = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8000/posts", {
-        title,
-        content,
-      });
+      const res = await axios.post(
+        "http://localhost:8000/posts",
+        {
+          title,
+          content,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
 
       console.log(res);
       setTitle("");
       setContent("");
       setErrorMessage("");
       setSuccessMessage("Post created successfully");
-      fetchPosts(); // Fetch the updated list of posts
+      fetchPosts();
     } catch (err) {
       console.log(err);
       setErrorMessage("Failed to create post. Please try again.");
@@ -84,6 +92,10 @@ const PostCreatePage = () => {
           <p>{post.content}</p>
         </div>
       ))}
+      <p>
+        * if you want to change the post contact{" "}
+        <a href="namithamanoj100@gmail.com">admin</a>
+      </p>
     </div>
   );
 };

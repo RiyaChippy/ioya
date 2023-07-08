@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import './Menu.css';
-import img1 from './katha.png';
-import img2 from './night.jpg';
-import img3 from './football.jpg';
-import img4 from './gallery13 (1).jpg';
-import img5 from './c-sis.jpg';
+import React from "react";
+import "./Menu.css";
+import img1 from "./katha.png";
+import img2 from "./night.jpg";
+import img3 from "./football.jpg";
+import img4 from "./gallery13 (1).jpg";
+import img5 from "./c-sis.jpg";
 
 const Menu = () => {
   return (
     <div>
-      
       <div className="container">
         <Slideshow />
       </div>
@@ -18,22 +17,9 @@ const Menu = () => {
 };
 
 const Slideshow = () => {
-  const [isPaused, setIsPaused] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsPaused(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsPaused(false);
-  };
-
+  // Removed the unused variable isPaused from this component
   return (
-    <div
-      className="potter"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div className="potter">
       <input type="radio" name="slide" id="img1" defaultChecked />
       <input type="radio" name="slide" id="img2" />
       <input type="radio" name="slide" id="img3" />
@@ -65,8 +51,8 @@ const Slideshow = () => {
         <img src={img4} alt="img4" />
         <div className="p">
           its objectives as "promoting Graduate and Post‐Graduate studies and
-          Advanced Research in Applied Sciences, Technology, Industry,
-          Commerce, Management, and Social Sciences."
+          Advanced Research in Applied Sciences, Technology, Industry, Commerce,
+          Management, and Social Sciences."
         </div>
       </div>
       <div className="slide">

@@ -5,7 +5,6 @@ import "../CourseDetails/Course/Course.css";
 function Othercon() {
   const [books, setBooks] = useState([]);
   const [showTable, setShowTable] = useState(false);
-  const [showImage, setShowImage] = useState(false);
 
   useEffect(() => {
     // Fetch books from the backend API
@@ -21,7 +20,6 @@ function Othercon() {
 
   const handleToggleTable = () => {
     setShowTable((prevShowTable) => !prevShowTable);
-    setShowImage((prevShowImage) => !prevShowImage);
   };
 
   return (
@@ -61,12 +59,6 @@ function Othercon() {
               </table>
             )}
           </div>
-          {showImage && (
-            <img
-              src="https://fastly.4sqi.net/img/general/600x600/2716724_az0iMe2r-aGKNdzUKbvSnoedB93sSZTtr5aiFVohhsU.jpg"
-              alt="soelib"
-            />
-          )}
         </div>
       </div>
       <div>

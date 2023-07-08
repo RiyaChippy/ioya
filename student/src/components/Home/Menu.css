@@ -155,11 +155,10 @@
   }
 }
 
-.potter input[name='slide']:checked ~ .slide {
-  animation: slide 20s infinite;
+.potter input[name="slide"]:checked ~ .slide {
+  animation: slide 15s infinite;
 }
 
 .navi-auto div.active {
   background-color: rgb(97, 97, 180);
 }
-

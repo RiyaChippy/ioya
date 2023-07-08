@@ -146,10 +146,13 @@ class AdminDashboard extends React.Component {
             ))}
           </tbody>
         </table>
-        <Link to="/Adduserpage" className="admin-dashboard-link">
+        <Link
+          to="/Admin/dashboard/Adduserpage"
+          className="admin-dashboard-link"
+        >
           Create New User
         </Link>
-        <Link to="/Adminpost" className="admin-dashboard-link">
+        <Link to="/Admin/dashboard/Adminpost" className="admin-dashboard-link">
           Posts
         </Link>
 
