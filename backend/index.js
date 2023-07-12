@@ -22,7 +22,7 @@ const db = mysql.createConnection({
   user: "root",
   host: "localhost",
   password: "root123",
-  database: "student",
+  database: "trial",
 });
 
 const saltRounds = 10;

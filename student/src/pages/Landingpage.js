@@ -72,29 +72,18 @@ const LandingPage = () => {
                 <p>
                   Some notable features of CUSAT include:
                   <br />
-                  <br />
                   Academic Programs: CUSAT offers a wide range of academic
                   programs, including B.Tech, M.Tech, MBA, M.Sc, M.A, LLB, PhD,
                   and more.
                   <br />
-                  <br />
                   Entrance Exams: CUSAT conducts its own entrance exams for
                   admission to different courses.
-                  <br />
                   <br />
                   Research and Innovation: CUSAT has a strong research culture
                   and encourages innovation.
                   <br />
-                  <br />
                   Industry Partnerships: The university has collaborations with
-                  leading industries and organizations to promote
-                  industry-academia interaction, internships, and placements for
-                  its students.
-                  <br />
-                  <br />
-                  Rankings and Accreditations: CUSAT has been consistently
-                  ranked among the top universities in India by various ranking
-                  agencies.
+                  leading industries and organizations.
                 </p>
               </div>
             </div>

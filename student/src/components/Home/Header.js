@@ -23,6 +23,9 @@ const Header = () => {
         <h1 className="h1">Student Portal</h1>
       </div>
       <div className="header-links">
+        <Link to="/login/Home" className="header-link">
+          Home{" "}
+        </Link>
         <Link to="/login/Home/CourseDetails" className="header-link">
           Course Details
         </Link>

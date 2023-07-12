@@ -16,7 +16,7 @@
 
 .marquee {
   size: large;
-  color: rgb(208, 81, 81);
+  color: #92d7ee;
   white-space: nowrap;
   overflow: hidden;
   text-align: center;
@@ -93,7 +93,7 @@ h3 {
   font-size: xx-large;
   align-items: center;
   justify-content: center;
-  padding-top: 60px;
+  padding-top: 83px;
   margin-bottom: 10%;
 }
 
@@ -153,14 +153,6 @@ h3 {
   }
 }
 
-.para {
-  background-color: transparent;
-  width: 750px;
-  height: 550px;
-  perspective: 1000px;
-  padding-bottom: 60px;
-}
-
 .carda {
   justify-content: center;
   align-items: center;
@@ -202,12 +194,14 @@ h3 {
 }
 
 .card-back {
-  padding-inline: 90px;
-  font-size: xx-large;
+  line-height: 30px;
+  padding-inline: 170px;
+  font-size: x-large;
   gap: 10px;
   color: whitesmoke;
   background-color: black;
   transform: rotateY(180deg);
+  font-family: cursive;
 }
 
 .card-image {

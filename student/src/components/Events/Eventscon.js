@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Eventscon.css";
-import img12 from './2023-06-30.png';
-import img13 from './logo.png';
+import img12 from "./2023-06-30.png";
+import img13 from "./logo.png";
 
 const Eventscon = () => {
   return (
@@ -56,15 +56,23 @@ const Eventscon = () => {
       <article>
         <div className="article-wrapper">
           <figure>
-            <img src={img12} alt=" " className='vibhava' />
+            <img src={img13} alt=" " className="vibhava" />
           </figure>
           <div className="article-body">
-            <h2 className="d">Vibhava</h2>
+            <h2 className="d">Sargram</h2>
             <p>
-              Vibhava is an educational fest conducted by CUSAT that aims to provide a platform for students to learn new technical skills and knowledge. The fest comprises a range of activities and events, including technical workshops, seminars, and much more.
+              The arts fest of Cochin University Students Union, SARGAM. It is
+              an art festival with the collaboration of all the colleges in the
+              University. It is a four-day program with DJs and so on. The event
+              marks it's opening on the 29th of April and the festivities
+              continue upto the 4rth of May . The stages will witness to the
+              zealous talent of students across the university with days and
+              nights filled with hues flair and vigour. The one of a kind arts
+              fest revolves around a vibrant crowd of over 9000 students hailing
+              from various campuses of CUSAT.
             </p>
-            <Link to="/" className="read-more">
-              Read More Read more{" "}
+            <Link to="https://studentsunion.cusat.ac.in/" className="read-more">
+              Read more{" "}
               <span className="sr-only">about this is some title</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -85,14 +93,22 @@ const Eventscon = () => {
       <article>
         <div className="article-wrapper">
           <figure>
-            <img src={img13} alt=" " className='vibhava' />
+            <img src={img12} alt=" " className="vibhava" />
           </figure>
           <div className="article-body">
-            <h2 className="d">Sargram</h2>
+            <h2 className="d">Vibhava</h2>
             <p>
-              The arts fest of Cochin University Students Union, SARGAM. It is an art festival with the collaboration of all the colleges in the University. It is a four-day program with DJs and so on.
+              Vibhava is an educational fest conducted by CUSAT that aims to
+              provide a platform for students to learn new technical skills and
+              knowledge. The fest comprises a range of activities and events,
+              including technical workshops, seminars, and much more.The fest is
+              organized by the students of the School of Engineering (SOE) and
+              aims to encourage students to explore and learn new technologies
+              and concepts in engineering. The fest also provides an opportunity
+              for students to interact with experts in the field and learn from
+              their experiences.
             </p>
-            <Link to="/" className="read-more">
+            <Link to="https://www.vibhavacusat.in/" className="read-more">
               Read more{" "}
               <span className="sr-only">about this is some title</span>
               <svg
