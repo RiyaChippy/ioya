@@ -50,8 +50,7 @@ const LandingPage = () => {
                 <img src={img10} alt="img10" className="card-image" />
               </div>
               <div className="card-back">
-                <p className="pa2">
-                  {" "}
+                <p>
                   Established in 1971, CUSAT offers undergraduate, postgraduate,
                   and doctoral programs in various fields of study including
                   engineering, science, technology, humanities, management, and
@@ -70,16 +69,29 @@ const LandingPage = () => {
                 <img src={img11} alt="img11" className="card-image" />
               </div>
               <div className="card-back">
-                <p className="pa2">
-                  Some notable features of CUSAT include: Academic Programs:
-                  CUSAT offers a wide range of academic programs, including
-                  B.Tech, M.Tech, MBA, M.Sc, M.A, LLB, PhD, and more. Entrance
-                  Exams: CUSAT conducts its own entrance exams for admission to
-                  different courses. Research and Innovation: CUSAT has a strong
-                  research culture and encourages innovation. Industry
-                  Partnerships: The university has collaborations with leading
-                  industries and organizations to promote industry-academia
-                  interaction, internships, and placements for its students.
+                <p>
+                  Some notable features of CUSAT include:
+                  <br />
+                  <br />
+                  Academic Programs: CUSAT offers a wide range of academic
+                  programs, including B.Tech, M.Tech, MBA, M.Sc, M.A, LLB, PhD,
+                  and more.
+                  <br />
+                  <br />
+                  Entrance Exams: CUSAT conducts its own entrance exams for
+                  admission to different courses.
+                  <br />
+                  <br />
+                  Research and Innovation: CUSAT has a strong research culture
+                  and encourages innovation.
+                  <br />
+                  <br />
+                  Industry Partnerships: The university has collaborations with
+                  leading industries and organizations to promote
+                  industry-academia interaction, internships, and placements for
+                  its students.
+                  <br />
+                  <br />
                   Rankings and Accreditations: CUSAT has been consistently
                   ranked among the top universities in India by various ranking
                   agencies.
@@ -93,8 +105,7 @@ const LandingPage = () => {
                 <img src={img12} alt="img12" className="card-image" />
               </div>
               <div className="card-back">
-                <p className="pa2">
-                  {" "}
+                <p>
                   CUSAT provides modern infrastructure and facilities to its
                   students, including libraries, laboratories, computer centers,
                   sports facilities, hostels, and a well-established central

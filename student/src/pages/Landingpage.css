@@ -153,13 +153,21 @@ h3 {
   }
 }
 
+.para {
+  background-color: transparent;
+  width: 750px;
+  height: 550px;
+  perspective: 1000px;
+  padding-bottom: 60px;
+}
+
 .carda {
   justify-content: center;
   align-items: center;
   display: flex;
   background-color: transparent;
-  width: 1080px;
-  height: 700px;
+  width: 750px;
+  height: 550px;
   perspective: 1000px;
   padding-bottom: 60px;
   padding-top: 20px;
@@ -194,8 +202,7 @@ h3 {
 }
 
 .card-back {
-  line-height: 39px;
-  padding-inline: 210px;
+  padding-inline: 90px;
   font-size: xx-large;
   gap: 10px;
   color: whitesmoke;
