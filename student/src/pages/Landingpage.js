@@ -2,17 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Landingpage.css";
 import img111 from "./CUSAT.png";
-import img10 from "./katha.png";
-import img11 from "./night.jpg";
-import img12 from "./football.jpg";
-import img13 from "./gallery13 (1).jpg";
-import img14 from "./c-sis.jpg";
+import img10 from "./gate.jpeg";
+import img11 from "./kaka.jpg";
+import img12 from "./night.jpg";
 
 const LandingPage = () => {
   return (
     <div className="last">
-      <div>
-        <div className="landing-page">
+      <div className="landing-page">
+        <div className="top">
           <div className="options-container">
             <Link to="/login" className="option-link">
               Login
@@ -28,90 +26,88 @@ const LandingPage = () => {
               Admin
             </Link>
           </div>
-          <img src={img111} alt="img111" className="img" />
-          <h1 className="landing">
-            COCHIN UNIVERSITY OF SCIENCE AND TECHNOLOGY
-          </h1>
         </div>
-
-        <div className="njr">
-          <div className="ney">
-            <div className="msn first">
-              <img src={img10} alt="img10" className="im" />
-              <div className="over overleft">
-                <div className="pa">
-                  <h1>Cochin University of Science and Technology (CUSAT)</h1>
-                </div>
+        <img src={img111} alt="img111" className="img" />
+        <h1 className="landing">COCHIN UNIVERSITY OF SCIENCE AND TECHNOLOGY</h1>
+      </div>
+      <div className="ttr">
+        <div className="marquee">
+          <span>
+            NEWS:&nbsp;&nbsp; RUSA invites Walk-in interview for the recruitment
+            of Project Assistant &amp; Post Doctoral Fellow.
+            &nbsp;&nbsp;&nbsp;&nbsp; Btech admissions first allotment is
+            published. &nbsp;&nbsp;&nbsp;&nbsp; CUSAT is ranked 37 in India as
+            per the latest NIRF Ranking 2023. &nbsp;&nbsp;&nbsp;&nbsp; Cusat has
+            been awarded 'A+' grade by the National Assessment and Accreditation
+            Council (NAAC). &nbsp;&nbsp;&nbsp;&nbsp; CUSAT has acquired tier-1
+            in NBA accreditation.
+          </span>
+        </div>
+        <div className="card-containera">
+          <div className="carda">
+            <div className="card-inner">
+              <div className="card-front">
+                <img src={img10} alt="img10" className="card-image" />
+              </div>
+              <div className="card-back">
+                <p className="pa2">
+                  {" "}
+                  Established in 1971, CUSAT offers undergraduate, postgraduate,
+                  and doctoral programs in various fields of study including
+                  engineering, science, technology, humanities, management, and
+                  law. CUSAT is known for its strong emphasis on research and
+                  innovation, and it has been ranked among the top universities
+                  in India. The university has multiple campuses and research
+                  centers, providing state-of-the-art facilities for students
+                  and faculty.
+                </p>
               </div>
             </div>
-
-            <div className="msn">
-              <img src={img11} alt="img11" className="im" />
-              <div className="over overleft">
-                <div className="pa">
-                  It was initially constituted as the University of Cochin
-                  through an Act of Kerala Government on 10th July 1971.
-                </div>
+          </div>
+          <div className="carda">
+            <div className="card-inner">
+              <div className="card-front">
+                <img src={img11} alt="img11" className="card-image" />
+              </div>
+              <div className="card-back">
+                <p className="pa2">
+                  Some notable features of CUSAT include: Academic Programs:
+                  CUSAT offers a wide range of academic programs, including
+                  B.Tech, M.Tech, MBA, M.Sc, M.A, LLB, PhD, and more. Entrance
+                  Exams: CUSAT conducts its own entrance exams for admission to
+                  different courses. Research and Innovation: CUSAT has a strong
+                  research culture and encourages innovation. Industry
+                  Partnerships: The university has collaborations with leading
+                  industries and organizations to promote industry-academia
+                  interaction, internships, and placements for its students.
+                  Rankings and Accreditations: CUSAT has been consistently
+                  ranked among the top universities in India by various ranking
+                  agencies.
+                </p>
               </div>
             </div>
-
-            <div className="msn">
-              <img src={img12} alt="img12" className="im" />
-              <div className="over overleft">
-                <div className="pa">
-                  The University of Cochin was re‐constituted as Cochin
-                  University of Science and Technology (CUSAT) in February 1986.
-                </div>
+          </div>
+          <div className="carda">
+            <div className="card-inner">
+              <div className="card-front">
+                <img src={img12} alt="img12" className="card-image" />
               </div>
-            </div>
-
-            <div className="msn">
-              <img src={img13} alt="img13" className="im" />
-              <div className="over overleft">
-                <div className="pa">
-                  its objectives as "promoting Graduate and Post‐Graduate
-                  studies and Advanced Research in Applied Sciences, Technology,
-                  Industry, Commerce, Management, and Social Sciences."
-                </div>
-              </div>
-            </div>
-
-            <div className="msn">
-              <img src={img14} alt="img14" className="im" />
-              <div className="over overleft">
-                <div className="pa">
-                  CUSAT is now a world-ranking university with the specific
-                  purpose of developing higher education, emphasizing
-                  post-graduate studies and research
-                </div>
+              <div className="card-back">
+                <p className="pa2">
+                  {" "}
+                  CUSAT provides modern infrastructure and facilities to its
+                  students, including libraries, laboratories, computer centers,
+                  sports facilities, hostels, and a well-established central
+                  library with a vast collection of books and research papers.
+                  CUSAT is committed to providing quality education, fostering
+                  research, and producing skilled professionals in various
+                  disciplines. It has a diverse and vibrant academic community,
+                  attracting students from across India and abroad.
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="as">
-        <h3 className="b">News</h3>
-
-        <ul className="marquee">
-          <li className="news">
-            RUSA invites Walk-in interview for the recruitment of Project
-            Assistant & Post Doctoral Fellow.
-          </li>
-          <li className="news">
-            Btech admissions first allotment is published.
-          </li>
-          <li className="news">
-            CUSAT is ranked 37 in India as per the latest NIRF Ranking 2023
-          </li>
-          <li className="news">
-            Cusat has been awarded 'A+' grade by the National Assessment and
-            Accreditation Council (NAAC).
-          </li>
-          <li className="news">
-            CUSAT has acquired tier-1 in NBA accreditation.
-          </li>
-        </ul>
       </div>
     </div>
   );

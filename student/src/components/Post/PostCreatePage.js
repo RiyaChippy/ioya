@@ -93,8 +93,8 @@ const PostCreatePage = () => {
         </div>
       ))}
       <p>
-        * if you want to change the post contact{" "}
-        <a href="namithamanoj100@gmail.com">admin</a>
+        * if you want to change the post contact admin
+
       </p>
     </div>
   );

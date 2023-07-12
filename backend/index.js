@@ -381,6 +381,19 @@ app.delete("/posts/:id", (req, res) => {
   });
 });
 
+app.get("/hostel", (req, res) => {
+  const sql = "SELECT * FROM hostel";
+
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error("Error executing the query:", err);
+      res.status(500).send("Internal Server Error");
+    } else {
+      res.status(200).json(results);
+    }
+  });
+});
+
 app.listen(8000, () => {
   console.log("Server started on port 8000");
 });

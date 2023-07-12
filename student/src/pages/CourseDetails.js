@@ -3,6 +3,7 @@ import Course from "../components/CourseDetails/Course/Course";
 import Footers from "../components/Home/Footers";
 import Header from "../components/Home/Header";
 import Syllabus from "../components/CourseDetails/syllabus";
+import Alu from "../components/CourseDetails/Alu/Alu";
 
 const CourseDetails = () => {
   return (
@@ -10,6 +11,7 @@ const CourseDetails = () => {
       <Header />
       <Course />
       <Syllabus />
+      <Alu />
       <Footers />
     </div>
   );
