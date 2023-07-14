@@ -8,7 +8,7 @@ function Main() {
       <div className="background-texture"></div>
 
       <section className="carousel">
-        <h2 className="categories__title">Hostels</h2>
+        <h2 className="categories__title">HOSTEL</h2>
         <div className="carousel__container">
           <div className="carousel-item">
             <img
@@ -21,7 +21,7 @@ function Main() {
                 <span className="fas fa-play-circle"></span>
                 <span className="fas fa-plus-circle"></span>
               </div>
-              <h5 className="carousel-item__details--title">Sagar Hostel</h5>
+              <h4 className="carousel-item__details--title">Sagar Hostel</h4>
               <h6 className="carousel-item__details--subtitle">ad</h6>
             </div>
           </div>
@@ -36,7 +36,7 @@ function Main() {
                 <span className="fas fa-play-circle"></span>
                 <span className="fas fa-plus-circle"></span>
               </div>
-              <h5 className="carousel-item__details--title">Siberia Hostel</h5>
+              <h4 className="carousel-item__details--title">Siberia Hostel</h4>
               <h6 className="carousel-item__details--subtitle">fa</h6>
             </div>
           </div>
@@ -52,7 +52,7 @@ function Main() {
                 <span className="fas fa-play-circle"></span>
                 <span className="fas fa-plus-circle"></span>
               </div>
-              <h5 className="carousel-item__details--title">Anaswara Hostel</h5>
+              <h4 className="carousel-item__details--title">Anaswara Hostel</h4>
               <h6 className="carousel-item__details--subtitle">azd</h6>
             </div>
           </div>
@@ -67,7 +67,7 @@ function Main() {
                 <span className="fas fa-play-circle"></span>
                 <span className="fas fa-plus-circle"></span>
               </div>
-              <h5 className="carousel-item__details--title">Sahara Hostel</h5>
+              <h4 className="carousel-item__details--title">Sahara Hostel</h4>
               <h6 className="carousel-item__details--subtitle">cfs</h6>
             </div>
           </div>
@@ -82,7 +82,7 @@ function Main() {
                 <span className="fas fa-play-circle"></span>
                 <span className="fas fa-plus-circle"></span>
               </div>
-              <h5 className="carousel-item__details--title">Ananya Hostel</h5>
+              <h4 className="carousel-item__details--title">Ananya Hostel</h4>
               <h6 className="carousel-item__details--subtitle">dsf</h6>
             </div>
           </div>
@@ -97,7 +97,7 @@ function Main() {
                 <span className="fas fa-play-circle"></span>
                 <span className="fas fa-plus-circle"></span>
               </div>
-              <h5 className="carousel-item__details--title">Anagha Hostel</h5>
+              <h4 className="carousel-item__details--title">Anagha Hostel</h4>
               <h6 className="carousel-item__details--subtitle">afdd</h6>
             </div>
           </div>
@@ -112,10 +112,10 @@ function Main() {
                 <span className="fas fa-play-circle"></span>
                 <span className="fas fa-plus-circle"></span>
               </div>
-              <h5 className="carousel-item__details--title">
+              <h4 className="carousel-item__details--title">
                 {" "}
                 Alakananda Hostel
-              </h5>
+              </h4>
               <h6 className="carousel-item__details--subtitle">ds</h6>
             </div>
           </div>
@@ -125,4 +125,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Main;

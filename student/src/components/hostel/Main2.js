@@ -18,7 +18,7 @@ function Main2() {
   return (
     <div className="hostel">
       <h2 className="subheader">About</h2>
-      <div className="para">
+      <div className="para9">
         {hostels.map((hostel) => (
           <div key={hostel.id}>
             <p>{hostel.Des}</p>
@@ -30,4 +30,4 @@ function Main2() {
   );
 }
 
-export default Main2;
+export default Main2;

@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "Muli", sans-serif;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -17,8 +17,12 @@ body {
   left: 0;
 }
 
+
+
+
 .background-texture {
   background-size: cover;
+  color: blue;
   width: 100%;
   height: 1000px;
   position: absolute;
@@ -44,9 +48,12 @@ body {
 }
 
 .categories__title {
-  font-size: 28px;
+  font-size: 40px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   position: absolute;
-  padding-left: 30px;
+  padding-left: 44%;
+  color: rgb(220, 220, 241);
+  margin-top: -12px;
 }
 
 .carousel-item {
@@ -113,9 +120,16 @@ body {
 .carousel-item__details .controls {
   padding-top: 180px;
 }
-
-.carousel-item__details .carousel-item__details--title,
+.para9{
+  color:#2c1313;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+ .carousel-item_details--title{
+  color:black;
+  font-size: x-large;
+  font-family:fantasy;
+ }
 .carousel-item__details--subtitle {
-  color: #fff;
-  margin: 5px 0;
+  color: #8e8686;
+  margin: 10px 0;
 }
