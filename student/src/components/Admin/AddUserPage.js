@@ -72,7 +72,7 @@ function AddUserPage() {
           onChange={handlePasswordChange}
         />
 
-        <button className="add-user-button" type="submit">
+        <button className="bu" type="submit">
           Create User
         </button>
       </form>

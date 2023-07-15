@@ -138,7 +138,7 @@ class AdminDashboard extends React.Component {
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>
-                  <button onClick={() => this.removeUser(user.id)}>
+                  <button className="bu" onClick={() => this.removeUser(user.id)}>
                     Remove
                   </button>
                 </td>
@@ -173,7 +173,7 @@ class AdminDashboard extends React.Component {
                 <td>{course.course_name}</td>
                 <td>{course.course_desc}</td>
                 <td>
-                  <button onClick={() => this.removeCourse(course.course_id)}>
+                  <button className="bu" onClick={() => this.removeCourse(course.course_id)}>
                     Remove
                   </button>
                 </td>
@@ -199,7 +199,7 @@ class AdminDashboard extends React.Component {
                 <td>{book.books}</td>
                 <td>{book.bookno}</td>
                 <td>
-                  <button onClick={() => this.removeBook(book.id)}>
+                  <button className="bu" onClick={() => this.removeBook(book.id)}>
                     Remove
                   </button>
                 </td>
@@ -225,7 +225,7 @@ class AdminDashboard extends React.Component {
                 <td>{item.course_name}</td>
                 <td>{item.syllabus}</td>
                 <td>
-                  <button onClick={() => this.removeSyllabus(item.id)}>
+                  <button className="bu" onClick={() => this.removeSyllabus(item.id)}>
                     Remove
                   </button>
                 </td>

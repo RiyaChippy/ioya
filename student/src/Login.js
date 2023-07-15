@@ -53,7 +53,12 @@ function Login() {
   }
 
   return (
+    
     <div className="background-container">
+      <div className="hex-grid">
+        <div className="light"></div>
+        <div className="grid"></div>
+      </div>
       <div className="blur-effect"></div>
       <div className="con">
         <div className="box">
