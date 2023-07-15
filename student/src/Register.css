@@ -1,7 +1,7 @@
 .con {
     display: flex;
     justify-content: center;
-    background-image: url(math.jpg);
+    background-image: url(./math.jpg);
     height: 100vh;
   }
   

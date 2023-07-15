@@ -82,7 +82,7 @@ function Main() {
                 <h6 className="carousel-item__details--subtitle">ad</h6>
               
             </span>
-              <span style={{ "--i": 8 }}>
+              <span style={{ "--i": 9 }}>
               <img
                 className="carousel-item__img"
                 src="https://hostels.cusat.ac.in/media/swaraj.png"
