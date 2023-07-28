@@ -100,13 +100,15 @@ class AdminDashboard extends React.Component {
       });
   }
 
-  removeSyllabus(syllabusId) {
+  removeSyllabus(syllabusInt) {
     axios
-      .delete(`http://localhost:8000/syllabus/${syllabusId}`)
+      .delete(`http://localhost:8000/syllabus/${syllabusInt}`)
       .then((response) => {
         console.log("Syllabus removed successfully");
         this.setState((prevState) => ({
-          syllabus: prevState.syllabus.filter((item) => item.id !== syllabusId),
+          syllabus: prevState.syllabus.filter(
+            (item) => item.int !== syllabusInt
+          ),
         }));
       })
       .catch((error) => {
@@ -138,7 +140,10 @@ class AdminDashboard extends React.Component {
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>
-                  <button className="bu" onClick={() => this.removeUser(user.id)}>
+                  <button
+                    className="bu"
+                    onClick={() => this.removeUser(user.id)}
+                  >
                     Remove
                   </button>
                 </td>
@@ -173,7 +178,10 @@ class AdminDashboard extends React.Component {
                 <td>{course.course_name}</td>
                 <td>{course.course_desc}</td>
                 <td>
-                  <button className="bu" onClick={() => this.removeCourse(course.course_id)}>
+                  <button
+                    className="bu"
+                    onClick={() => this.removeCourse(course.course_id)}
+                  >
                     Remove
                   </button>
                 </td>
@@ -181,6 +189,9 @@ class AdminDashboard extends React.Component {
             ))}
           </tbody>
         </table>
+        <Link to="/Admin/dashboard/Addcourse" className="admin-dashboard-link">
+          Add course
+        </Link>
 
         <h5 className="admin-dashboard-section-title">Books</h5>
         <table className="admin-dashboard-table">
@@ -199,7 +210,10 @@ class AdminDashboard extends React.Component {
                 <td>{book.books}</td>
                 <td>{book.bookno}</td>
                 <td>
-                  <button className="bu" onClick={() => this.removeBook(book.id)}>
+                  <button
+                    className="bu"
+                    onClick={() => this.removeBook(book.id)}
+                  >
                     Remove
                   </button>
                 </td>
@@ -207,7 +221,9 @@ class AdminDashboard extends React.Component {
             ))}
           </tbody>
         </table>
-
+        <Link to="/Admin/dashboard/Addbook" className="admin-dashboard-link">
+          Add book
+        </Link>
         <h5 className="admin-dashboard-section-title">Syllabus</h5>
         <table className="admin-dashboard-table">
           <thead>
@@ -225,7 +241,10 @@ class AdminDashboard extends React.Component {
                 <td>{item.course_name}</td>
                 <td>{item.syllabus}</td>
                 <td>
-                  <button className="bu" onClick={() => this.removeSyllabus(item.id)}>
+                  <button
+                    className="bu"
+                    onClick={() => this.removeSyllabus(item.int)}
+                  >
                     Remove
                   </button>
                 </td>
@@ -233,6 +252,9 @@ class AdminDashboard extends React.Component {
             ))}
           </tbody>
         </table>
+        <Link to="/Admin/dashboard/Addsy" className="admin-dashboard-link">
+          add syallabus
+        </Link>
       </div>
     );
   }

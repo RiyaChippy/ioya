@@ -16,7 +16,9 @@ import AddUserPage from "./components/Admin/AddUserPage";
 import AdminRegistration from "./components/Admin/AdminRegistration";
 import Forgotten from "./pages/Forgotten";
 import Adminpost from "./components/Admin/Adminpost";
-
+import AddCoursePage from "./components/Admin/Addcourse";
+import AddBookPage from "./components/Admin/Addbook";
+import AddSyllabusPage from "./components/Admin/Addsy";
 function App() {
   return (
     <Router>
@@ -36,6 +38,9 @@ function App() {
         <Route path="/Adminregister" element={<AdminRegistration />} />
         <Route path="/forgottenpassword" element={<Forgotten />} />
         <Route path="/Admin/dashboard/Adminpost" element={<Adminpost />} />
+        <Route path="/Admin/dashboard/Addcourse" element={<AddCoursePage />} />
+        <Route path="/Admin/dashboard/Addbook" element={<AddBookPage />} />
+        <Route path="/Admin/dashboard/Addsy" element={<AddSyllabusPage />} />
       </Routes>
     </Router>
   );

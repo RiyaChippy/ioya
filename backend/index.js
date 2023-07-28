@@ -224,20 +224,17 @@ app.get("/courses", (req, res) => {
     }
   });
 });
-app.delete("/courses/:id", (req, res) => {
-  const coursesId = parseInt(req.params.id);
-  const sql = "DELETE FROM courses WHERE id = ?";
+app.delete("/courses/:courseId", (req, res) => {
+  const courseId = req.params.courseId;
 
-  db.query(sql, [coursesId], (err, result) => {
+  const sql = "DELETE FROM courses WHERE course_id = ?";
+  db.query(sql, [courseId], (err, result) => {
     if (err) {
-      console.error("Error executing the query:", err);
-      res.status(500).send("Internal Server Error");
+      console.log(err);
+      return res.status(500).send("Error removing course");
     } else {
-      if (result.affectedRows > 0) {
-        res.json({ message: "User removed successfully" });
-      } else {
-        res.status(404).json({ message: "User not found" });
-      }
+      console.log(result);
+      res.send("Course removed successfully");
     }
   });
 });
@@ -255,23 +252,24 @@ app.get("/syllabus", (req, res) => {
   });
 });
 
-app.delete("/syllubus/:int", (req, res) => {
-  const syllubusint = parseInt(req.params.id);
-  const sql = "DELETE FROM syllubus WHERE id = ?";
+app.delete("/syllabus/:int", (req, res) => {
+  const syllabusInt = parseInt(req.params.int);
+  const sql = "DELETE FROM syllabus WHERE `int` = ?"; // Use backticks around "int"
 
-  db.query(sql, [syllubusint], (err, result) => {
+  db.query(sql, [syllabusInt], (err, result) => {
     if (err) {
       console.error("Error executing the query:", err);
       res.status(500).send("Internal Server Error");
     } else {
       if (result.affectedRows > 0) {
-        res.json({ message: "User removed successfully" });
+        res.json({ message: "Syllabus removed successfully" });
       } else {
-        res.status(404).json({ message: "User not found" });
+        res.status(404).json({ message: "Syllabus not found" });
       }
     }
   });
 });
+
 app.get("/books", (req, res) => {
   const sql = "SELECT * FROM books";
 
@@ -394,6 +392,45 @@ app.get("/hostel", (req, res) => {
   });
 });
 
+app.post("/addCourse", (req, res) => {
+  const { course_name, course_desc } = req.body;
+
+  // Perform database insertion here
+  const sql = "INSERT INTO courses (course_name, course_desc) VALUES (?, ?)";
+  db.query(sql, [course_name, course_desc], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send("Error adding course");
+    } else {
+      console.log(result);
+      res.send("Course added successfully");
+    }
+  });
+});
+app.post("/addbooks", (req, res) => {
+  const { book_name, book_no } = req.body;
+  const sql = "INSERT INTO books (books, bookno) VALUES (?, ?)";
+  db.query(sql, [book_name, book_no], (err, result) => {
+    if (err) {
+      console.log("Error adding book:", err);
+      return res.status(500).send("Error adding book");
+    }
+    console.log("Book added successfully");
+    res.status(200).json({ message: "Book added successfully" });
+  });
+});
+app.post("/addsyllabus", (req, res) => {
+  const { course_name, syllabus } = req.body;
+  const sql = "INSERT INTO syllabus (course_name, syllabus) VALUES (?, ?)";
+  db.query(sql, [course_name, syllabus], (err, result) => {
+    if (err) {
+      console.log("Error adding syllabus:", err);
+      return res.status(500).send("Error adding syllabus");
+    }
+    console.log("Syllabus added successfully");
+    res.status(200).json({ message: "Syllabus added successfully" });
+  });
+});
 app.listen(8000, () => {
   console.log("Server started on port 8000");
 });
