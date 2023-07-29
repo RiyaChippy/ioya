@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Home/Header";
-import Footer from "../components/Home/Footers";
+import Footers from "../components/Home/Footers";
 import Othercon from "../components/others/Othercon";
 
 const Other = () => {
@@ -8,7 +8,7 @@ const Other = () => {
     <div className="App1">
       <Header />
       <Othercon />
-      <Footer />
+      <Footers />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../CourseDetails/Course/Course.css";
+import img1 from "./map.jpg";
 
 function Othercon() {
   const [books, setBooks] = useState([]);
@@ -76,6 +77,8 @@ function Othercon() {
           <a href="http://dspace.cusat.ac.in/">http://dspace.cusat.ac.in/</a>
         </p>
       </div>
+      <h4 className="h4">University Map </h4>
+      <img src={img1} alt="img1"className="ig" />
     </div>
   );
 }

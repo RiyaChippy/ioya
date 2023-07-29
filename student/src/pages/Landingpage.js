@@ -71,7 +71,7 @@ const LandingPage = () => {
               <div className="card-back">
                 <p>
                   Some notable features of CUSAT include:
-                  <br />
+               <br/>
                   Academic Programs: CUSAT offers a wide range of academic
                   programs, including B.Tech, M.Tech, MBA, M.Sc, M.A, LLB, PhD,
                   and more.

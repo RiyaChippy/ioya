@@ -1,4 +1,5 @@
 import axios from "axios";
+import "./Main.css";
 import React, { useState, useEffect } from "react";
 
 function Main2() {

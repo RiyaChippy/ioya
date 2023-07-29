@@ -187,3 +187,11 @@ body {
 .carousel-item__details .controls {
   padding-top: 180px;
 }
+p{
+  padding-inline: 30px;
+  padding-top: 10px;
+}
+.ig{
+  width: 800px;
+  margin-left: 300px;
+}

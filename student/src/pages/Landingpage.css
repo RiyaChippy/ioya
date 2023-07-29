@@ -203,6 +203,9 @@ h3 {
   transform: rotateY(180deg);
   font-family: cursive;
 }
+.card-back p{
+  padding-inline: 8px;
+}
 
 .card-image {
   width: 100%;

@@ -1,3 +1,6 @@
+body{
+  height: 10%;
+}
 .h2 {
   color: white;
   font-size: 60px;
@@ -21,7 +24,7 @@
 }
 
 .container {
-  height: 1694px;
+  height: 1640px;
   width: 1512px;
   border-radius: 10px;
   overflow: hidden;
