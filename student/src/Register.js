@@ -7,6 +7,7 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(true);
   const navigate = useNavigate(); // Initialize useNavigate
 
   const handleNameChange = (event) => {
@@ -15,6 +16,8 @@ function Register() {
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
+    const regex = /\S+@\S+\.\S+/;
+    setIsEmailValid(regex.test(event.target.value));
   };
 
   const handlePasswordChange = (event) => {
@@ -23,18 +26,20 @@ function Register() {
 
   const handleClick = async (event) => {
     event.preventDefault();
-    try {
-      const res = await axios.post("http://localhost:8000/register", {
-        name: name,
-        email: email,
-        password: password,
-      });
-      console.log(res);
+    if (isEmailValid) {
+      try {
+        const res = await axios.post("http://localhost:8000/register", {
+          name: name,
+          email: email,
+          password: password,
+        });
+        console.log(res);
 
-      // Redirect to login page after successful registration
-      navigate("/");
-    } catch (err) {
-      console.log(err);
+        // Redirect to login page after successful registration
+        navigate("/");
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 
@@ -59,6 +64,7 @@ function Register() {
             placeholder="Enter the email"
             onChange={handleEmailChange}
           />
+          {!isEmailValid && <p>Email is not valid!</p>}
           <label>Password</label>
           <input
             required
