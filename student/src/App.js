@@ -19,6 +19,7 @@ import Adminpost from "./components/Admin/Adminpost";
 import AddCoursePage from "./components/Admin/Addcourse";
 import AddBookPage from "./components/Admin/Addbook";
 import AddSyllabusPage from "./components/Admin/Addsy";
+import UpdateHostelPage from "./components/Admin/UpdateHos";
 function App() {
   return (
     <Router>
@@ -41,6 +42,12 @@ function App() {
         <Route path="/Admin/dashboard/Addcourse" element={<AddCoursePage />} />
         <Route path="/Admin/dashboard/Addbook" element={<AddBookPage />} />
         <Route path="/Admin/dashboard/Addsy" element={<AddSyllabusPage />} />
+        <Route
+          path="/Admin/dashboard/update-hostel/:hostelId"
+          element={<UpdateHostelPage />}
+        />
+
+        
       </Routes>
     </Router>
   );

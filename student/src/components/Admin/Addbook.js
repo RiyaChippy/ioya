@@ -1,10 +1,11 @@
-// AddBookPage.js
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AddBookPage = () => {
   const [bookName, setBookName] = useState("");
   const [bookNo, setBookNo] = useState(0);
+  const navigate = useNavigate();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +16,8 @@ const AddBookPage = () => {
       })
       .then((response) => {
         console.log("Book added successfully");
-        // You can redirect to the books page or perform any other action after adding the book
+        // Navigate to the books page or perform any other action after adding the book
+        navigate("/Admin/dashboard");
       })
       .catch((error) => {
         console.log("Error adding book:", error);

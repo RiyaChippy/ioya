@@ -11,6 +11,7 @@ class AdminDashboard extends React.Component {
       courses: [],
       syllabus: [],
       books: [],
+      hostel: [],
     };
     this.removeUser = this.removeUser.bind(this);
     this.removeCourse = this.removeCourse.bind(this);
@@ -53,6 +54,14 @@ class AdminDashboard extends React.Component {
       })
       .catch((error) => {
         console.log("Error fetching books:", error);
+      });
+      axios
+      .get("http://localhost:8000/hostel")
+      .then((response) => {
+        this.setState({ hostel: response.data }); // Fix: Set the hostel data in the state
+      })
+      .catch((error) => {
+        console.error("Error fetching hostels:", error);
       });
   }
 
@@ -117,7 +126,7 @@ class AdminDashboard extends React.Component {
   }
 
   render() {
-    const { users, courses, syllabus, books } = this.state;
+    const { users, courses, syllabus, books, hostel } = this.state;
 
     return (
       <div className="admin-dashboard-container">
@@ -161,6 +170,38 @@ class AdminDashboard extends React.Component {
           Posts
         </Link>
 
+        <h5 className="admin-dashboard-section-title">Books</h5>
+        <table className="admin-dashboard-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Book Name</th>
+              <th>No of Books</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {books.map((book) => (
+              <tr key={book.id}>
+                <td>{book.id}</td>
+                <td>{book.books}</td>
+                <td>{book.bookno}</td>
+                <td>
+                  <button
+                    className="bu"
+                    onClick={() => this.removeBook(book.id)}
+                  >
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <Link to="/Admin/dashboard/Addbook" className="admin-dashboard-link">
+          Add book
+        </Link>
+        
         <h5 className="admin-dashboard-section-title">Courses</h5>
         <table className="admin-dashboard-table">
           <thead>
@@ -193,37 +234,7 @@ class AdminDashboard extends React.Component {
           Add course
         </Link>
 
-        <h5 className="admin-dashboard-section-title">Books</h5>
-        <table className="admin-dashboard-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Book Name</th>
-              <th>No of Books</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {books.map((book) => (
-              <tr key={book.id}>
-                <td>{book.id}</td>
-                <td>{book.books}</td>
-                <td>{book.bookno}</td>
-                <td>
-                  <button
-                    className="bu"
-                    onClick={() => this.removeBook(book.id)}
-                  >
-                    Remove
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <Link to="/Admin/dashboard/Addbook" className="admin-dashboard-link">
-          Add book
-        </Link>
+       
         <h5 className="admin-dashboard-section-title">Syllabus</h5>
         <table className="admin-dashboard-table">
           <thead>
@@ -255,6 +266,36 @@ class AdminDashboard extends React.Component {
         <Link to="/Admin/dashboard/Addsy" className="admin-dashboard-link">
           add syllabus
         </Link>
+        
+      
+        <h5 className="admin-dashboard-section-title">Hostels</h5>
+        <table className="admin-dashboard-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Description</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {hostel.map((hostel) => (
+              <tr key={hostel.id}>
+                <td>{hostel.id}</td>
+                <td>{hostel.Des}</td>
+                <td>{hostel.des2}</td>
+                <td>
+                <Link to={`/Admin/dashboard/update-hostel/${hostel.id}`} className="admin-dashboard-link">
+  Update Hostel
+</Link>
+
+              </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        
+
+
       </div>
     );
   }

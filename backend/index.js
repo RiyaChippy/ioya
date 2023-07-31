@@ -422,9 +422,10 @@ app.post("/addbooks", (req, res) => {
   });
 });
 app.post("/addsyllabus", (req, res) => {
-  const { course_name, syllabus } = req.body;
-  const sql = "INSERT INTO syllabus (course_name, syllabuslink) VALUES (?, ?)";
-  db.query(sql, [course_name, syllabus], (err, result) => {
+  const { name, syllabus_link, course_id } = req.body; // Updated variable names
+
+  const sql = "INSERT INTO syllabus (name, syllabus_link, course_id) VALUES (?, ?, ?)"; // Updated column names
+  db.query(sql, [name, syllabus_link, course_id], (err, result) => { // Updated variable names
     if (err) {
       console.log("Error adding syllabus:", err);
       return res.status(500).send("Error adding syllabus");
@@ -433,6 +434,45 @@ app.post("/addsyllabus", (req, res) => {
     res.status(200).json({ message: "Syllabus added successfully" });
   });
 });
+
+
+app.get("/hostel/:id", (req, res) => {
+  const hostelId = req.params.id;
+
+  const sql = "SELECT * FROM hostel WHERE id = ?";
+  db.query(sql, [hostelId], (err, result) => {
+    if (err) {
+      console.error("Error fetching hostel:", err);
+      res.status(500).json({ message: "Internal server error" });
+    } else {
+      if (result.length === 0) {
+        res.status(404).json({ message: "Hostel not found" });
+      } else {
+        res.json(result[0]);
+      }
+    }
+  });
+});
+
+app.put("/hostel/:id", (req, res) => {
+  const hostelId = req.params.id;
+  const { Des, des2 } = req.body; // Changed des1 to des2 here
+
+  const sql = "UPDATE hostel SET Des = ?, des2 = ? WHERE id = ?";
+  db.query(sql, [Des, des2, hostelId], (err, result) => { // Changed des1 to des2 here
+    if (err) {
+      console.error("Error updating hostel:", err);
+      res.status(500).json({ message: "Internal server error" });
+    } else {
+      if (result.affectedRows === 0) {
+        res.status(404).json({ message: "Hostel not found" });
+      } else {
+        res.json({ message: "Hostel updated successfully" });
+      }
+    }
+  });
+});
+
 app.listen(8000, () => {
   console.log("Server started on port 8000");
 });

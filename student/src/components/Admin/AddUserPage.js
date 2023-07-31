@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function AddUserPage() {
   const [name, setName] = useState("");
@@ -18,6 +19,8 @@ function AddUserPage() {
     setPassword(event.target.value);
   };
 
+  const navigate = useNavigate();
+
   const handleCreateUser = async (event) => {
     event.preventDefault();
 
@@ -28,7 +31,7 @@ function AddUserPage() {
         password: password,
       });
       console.log(res);
-
+      navigate("/Admin/dashboard");
       // Reset form inputs after successful user creation
       setName("");
       setEmail("");

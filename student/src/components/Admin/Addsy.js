@@ -1,21 +1,23 @@
-// AddSyllabusPage.js
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AddSyllabusPage = () => {
   const [courseName, setCourseName] = useState("");
   const [syllabusContent, setSyllabusContent] = useState("");
+  const navigate = useNavigate();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:8000/addsyllabus", {
-        course_name: courseName,
-        syllabus: syllabusContent,
+        name: courseName,
+        syllabus_link: syllabusContent,
       })
       .then((response) => {
         console.log("Syllabus added successfully");
-        // You can redirect to the syllabus page or perform any other action after adding the syllabus
+        // Navigate to the syllabus page or perform any other action after adding the syllabus
+        navigate("/Admin/dashboard"); // Replace "/syllabus" with the desired route path
       })
       .catch((error) => {
         console.log("Error adding syllabus:", error);
