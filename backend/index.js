@@ -252,11 +252,12 @@ app.get("/syllabus", (req, res) => {
   });
 });
 
-app.delete("/syllabus/:int", (req, res) => {
-  const syllabusInt = parseInt(req.params.int);
-  const sql = "DELETE FROM syllabus WHERE `int` = ?"; // Use backticks around "int"
+app.delete("/syllabus/:syllabus_id", (req, res) => {
+  const syllabusId = parseInt(req.params.syllabus_id); // Corrected variable name and parsing
 
-  db.query(sql, [syllabusInt], (err, result) => {
+  const sql = "DELETE FROM syllabus WHERE `syllabus_id` = ?"; // Corrected the column name
+
+  db.query(sql, [syllabusId], (err, result) => {
     if (err) {
       console.error("Error executing the query:", err);
       res.status(500).send("Internal Server Error");
@@ -269,6 +270,7 @@ app.delete("/syllabus/:int", (req, res) => {
     }
   });
 });
+
 
 app.get("/books", (req, res) => {
   const sql = "SELECT * FROM books";
@@ -421,7 +423,7 @@ app.post("/addbooks", (req, res) => {
 });
 app.post("/addsyllabus", (req, res) => {
   const { course_name, syllabus } = req.body;
-  const sql = "INSERT INTO syllabus (course_name, syllabus) VALUES (?, ?)";
+  const sql = "INSERT INTO syllabus (course_name, syllabuslink) VALUES (?, ?)";
   db.query(sql, [course_name, syllabus], (err, result) => {
     if (err) {
       console.log("Error adding syllabus:", err);

@@ -28,15 +28,15 @@ function Syllabus() {
         </thead>
         <tbody>
           {courses.map((course) => (
-            <tr key={course.int}>
-              <td>{course.course_name}</td>
+            <tr key={course.syllabus_id}>
+              <td>{course.name}</td>
               <td>
                 <a
-                  href={course.syllabus}
+                  href={course.syllabus_link}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Syllabus {course.course_name}
+                  Syllabus {course.syllabus_id}
                 </a>
               </td>
             </tr>

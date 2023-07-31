@@ -36,15 +36,21 @@
 }
 
 .subheader {
+  padding-bottom: 44px;
+    padding-top: 20px;
   color: aliceblue;
   padding-left: -9px;
   margin-left: 66px;
 }
 .course-list {
+  padding-bottom: 20px;
   list-style-type: disc;
   color: white;
   padding-left: 76px;
   padding-right: 30pc;
+}
+.course-list li{
+  padding-bottom: 20px;
 }
 .course-list li:hover .course-name {
   color: blue; /* Set the color of the course name on hover */

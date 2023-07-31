@@ -100,14 +100,14 @@ class AdminDashboard extends React.Component {
       });
   }
 
-  removeSyllabus(syllabusInt) {
+  removeSyllabus(syllabussyllabus_id) {
     axios
-      .delete(`http://localhost:8000/syllabus/${syllabusInt}`)
+      .delete(`http://localhost:8000/syllabus/${syllabussyllabus_id}`)
       .then((response) => {
         console.log("Syllabus removed successfully");
         this.setState((prevState) => ({
           syllabus: prevState.syllabus.filter(
-            (item) => item.int !== syllabusInt
+            (item) => item.syllabus_id !== syllabussyllabus_id
           ),
         }));
       })
@@ -236,14 +236,14 @@ class AdminDashboard extends React.Component {
           </thead>
           <tbody>
             {syllabus.map((item) => (
-              <tr key={item.int}>
-                <td>{item.int}</td>
-                <td>{item.course_name}</td>
-                <td>{item.syllabus}</td>
+              <tr key={item.syllabus_id}>
+                <td>{item.syllabus_id}</td>
+                <td>{item.name}</td>
+                <td>{item.syllabus_link}</td>
                 <td>
                   <button
                     className="bu"
-                    onClick={() => this.removeSyllabus(item.int)}
+                    onClick={() => this.removeSyllabus(item.syllabus_id)}
                   >
                     Remove
                   </button>
@@ -253,7 +253,7 @@ class AdminDashboard extends React.Component {
           </tbody>
         </table>
         <Link to="/Admin/dashboard/Addsy" className="admin-dashboard-link">
-          add syallabus
+          add syllabus
         </Link>
       </div>
     );
